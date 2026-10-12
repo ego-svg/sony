@@ -15,7 +15,7 @@ interface ScrollVideoBackgroundProps {
 export const ScrollVideoBackground = forwardRef<
   ScrollVideoBackgroundRef,
   ScrollVideoBackgroundProps
->(({ src = '/video.mp4', poster = '/video-poster.jpg', onDurationReady, onTimeUpdate }, ref) => {
+>(({ src = '/video.mp4', poster = '/images/detail-cameras.jpg', onDurationReady, onTimeUpdate }, ref) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [duration, setDuration] = useState(22.01);

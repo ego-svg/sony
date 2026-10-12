@@ -17,9 +17,9 @@ export const TopNav: React.FC<TopNavProps> = ({
   onToggleLighting,
 }) => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-5 pointer-events-auto">
+    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-12 py-3 sm:py-5 pointer-events-auto bg-gradient-to-b from-black/70 via-black/30 to-transparent backdrop-blur-[2px]">
       {/* Brand Zone: EOS Wordmark with Luminous White Lighting + Micro Kicker */}
-      <div className="flex items-center gap-3 select-none">
+      <div className="flex items-center gap-2.5 sm:gap-3 select-none shrink-0">
         <div className="flex items-center gap-1.5">
           <span className="font-['Space_Grotesk'] text-2xl md:text-3xl font-extrabold tracking-tight text-lighting-white leading-none">
             eos
@@ -32,8 +32,8 @@ export const TopNav: React.FC<TopNavProps> = ({
         </div>
       </div>
 
-      {/* Center-Right Nav Pills + Action Button */}
-      <div className="flex items-center gap-2 md:gap-3">
+      {/* Center-Right Nav Pills + Action Buttons */}
+      <div className="flex items-center gap-2 md:gap-3 shrink-0">
         {/* Navigation Pills */}
         <nav className="hidden lg:flex items-center gap-2" aria-label="Feature navigation">
           {NAV_ITEMS.map((item) => {
@@ -64,19 +64,22 @@ export const TopNav: React.FC<TopNavProps> = ({
         {onToggleLighting && (
           <button
             onClick={onToggleLighting}
-            className="glass-pill px-3 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer flex items-center gap-1.5 border-cyan-400/40 bg-cyan-950/30 text-cyan-200 hover:text-white"
+            className="glass-pill px-2.5 sm:px-3 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer flex items-center gap-1.5 border-cyan-400/40 bg-cyan-950/30 text-cyan-200 hover:text-white shrink-0"
             title="Switch typography lighting style (Ultra, Neon, Studio)"
             aria-label="Toggle typography lighting"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-300 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
-            <span className="text-lighting-cyan font-mono">{lightingMode.toUpperCase()}<span className="hidden sm:inline"> LIGHT</span></span>
+            <span className="text-lighting-cyan font-mono">
+              {lightingMode.toUpperCase()}
+              <span className="hidden sm:inline"> LIGHT</span>
+            </span>
           </button>
         )}
 
         {/* Tech Specs Action Button */}
         <button
           onClick={onOpenSpecs}
-          className="glass-pill px-4 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase text-white hover:text-amber-300 transition-all duration-200 cursor-pointer flex items-center gap-1.5"
+          className="glass-pill px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-white hover:text-amber-300 transition-all duration-200 cursor-pointer flex items-center gap-1.5 shrink-0"
           aria-label="Open camera technical specifications"
         >
           <span>TECH SPECS</span>

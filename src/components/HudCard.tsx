@@ -17,7 +17,7 @@ export const HudCard: React.FC<HudCardProps> = ({
 }) => {
   return (
     <aside
-      className="glass-panel-ref w-full max-w-[360px] sm:max-w-[400px] max-h-[calc(100vh-170px)] overflow-y-auto rounded-[32px] p-6 sm:p-7 flex flex-col gap-4 text-white pointer-events-auto transition-all duration-300 relative select-none scrollbar-thin"
+      className="glass-panel-ref w-full max-w-[360px] sm:max-w-[400px] max-h-[calc(100vh-170px)] overflow-y-auto rounded-[32px] p-6 sm:p-7 flex flex-col gap-4 text-white pointer-events-auto transition-all duration-300 relative select-none scrollbar-thin bg-[#140c0a]/92 sm:bg-[#18110e]/88 backdrop-blur-2xl z-30"
       aria-labelledby="hud-heading"
     >
       {/* Top Kicker Tag with Amber Dot & Luminous Glow */}
@@ -26,16 +26,16 @@ export const HudCard: React.FC<HudCardProps> = ({
         <span className="text-lighting-amber font-extrabold tracking-[0.16em]">{data.kicker}</span>
       </div>
 
-      {/* Headline: Line 1 Bold Space Grotesk + Line 2 Editorial Italic Serif with Studio Light Bloom (No overlap) */}
-      <div className="flex flex-col gap-1 sm:gap-1.5 py-0.5">
+      {/* Headline: Line 1 Bold Space Grotesk + Line 2 Editorial Italic Serif (Calibrated line-height to eliminate overlap) */}
+      <div className="flex flex-col gap-1.5 sm:gap-2 pt-0.5 pb-0.5">
         <h1
           id="hud-heading"
-          className="font-['Space_Grotesk'] text-[28px] sm:text-[34px] font-extrabold tracking-[-0.02em] text-lighting-white leading-[1.18] sm:leading-[1.2] block pb-0.5"
+          className="font-['Space_Grotesk'] text-[26px] sm:text-[32px] font-extrabold tracking-tight text-lighting-white leading-[1.24] sm:leading-[1.26] block"
         >
           {data.headline}
         </h1>
         {data.headlineSecondLine && (
-          <span className="font-['Newsreader'] italic font-normal text-[28px] sm:text-[34px] tracking-[-0.01em] text-lighting-white leading-[1.22] sm:leading-[1.25] block pt-0.5">
+          <span className="font-['Newsreader'] italic font-normal text-[26px] sm:text-[32px] tracking-tight text-lighting-white leading-[1.24] sm:leading-[1.26] block">
             {data.headlineSecondLine}
           </span>
         )}
@@ -108,19 +108,19 @@ export const HudCard: React.FC<HudCardProps> = ({
       )}
 
       {/* Bottom Spec Metric Strip Matching Reference */}
-      <div className="pt-2 border-t border-white/10 flex items-center justify-between">
-        <div className="flex items-baseline gap-2 select-none">
-          <span className="font-['Space_Grotesk'] text-2xl font-black text-lighting-amber tracking-tight">
+      <div className="pt-2 border-t border-white/10 flex items-center justify-between gap-3">
+        <div className="flex items-baseline gap-2 select-none min-w-0">
+          <span className="font-['Space_Grotesk'] text-2xl font-black text-lighting-amber tracking-tight shrink-0">
             {data.specValue || '18.0'}
           </span>
-          <span className="text-[10px] tracking-[0.12em] uppercase font-bold text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">
+          <span className="text-[10px] tracking-[0.12em] uppercase font-bold text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] truncate">
             {data.specUnit || data.specBadge}
           </span>
         </div>
 
         <button
           onClick={onCtaClick}
-          className="w-7 h-7 rounded-full border border-white/20 hover:border-white/50 hover:bg-white/10 flex items-center justify-center text-xs text-white/80 hover:text-white transition-all cursor-pointer"
+          className="w-7 h-7 rounded-full border border-white/20 hover:border-white/50 hover:bg-white/10 flex items-center justify-center text-xs text-white/80 hover:text-white transition-all cursor-pointer shrink-0"
           title="Toggle sensor specifications"
           aria-label="Expand technical specs"
         >

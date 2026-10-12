@@ -149,9 +149,9 @@ export default function App() {
           <StageTypography title={activeChapter.stageTitle} lightingMode={lightingMode} />
 
           {/* Main Content Area (Glass HUD & Story Stage) */}
-          <main className="relative flex-1 w-full max-w-[1520px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between pt-24 pb-20 z-20 overflow-hidden pointer-events-none">
+          <main className="relative flex-1 w-full max-w-[1520px] mx-auto px-4 sm:px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between pt-20 sm:pt-24 pb-16 sm:pb-20 z-20 overflow-hidden pointer-events-none">
             {/* Left Side: Floating Dark Obsidian Glass HUD Card */}
-            <div className="w-full lg:w-auto flex justify-start items-center z-30 pt-4 lg:pt-0 pointer-events-auto">
+            <div className="w-full lg:w-auto flex justify-start items-center z-30 pt-2 lg:pt-0 pointer-events-auto">
               <HudCard
                 data={activeChapter}
                 isExpanded={isHudExpanded}
