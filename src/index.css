@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif-italic: 'Newsreader', Georgia, serif;
+  --color-brand-orange: #EA580C;
+  --color-brand-dark-orange: #9A3412;
+  --color-brand-cyan: #2DD4BF;
+  --color-brand-cyan-light: #5EEAD4;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0c0402;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism Panel strictly modeled after reference video & UI */
+.glass-panel-ref {
+  background: linear-gradient(
+    145deg,
+    rgba(28, 22, 20, 0.66) 0%,
+    rgba(16, 12, 10, 0.78) 100%
+  );
+  backdrop-filter: blur(28px) saturate(180%) brightness(104%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(104%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-top: 1px solid rgba(255, 255, 255, 0.38);
+  border-left: 1px solid rgba(255, 255, 255, 0.26);
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.38),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.5),
+    0 24px 60px -12px rgba(0, 0, 0, 0.72),
+    0 4px 20px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+/* Subtle glass specular highlight sweep across top edge */
+.glass-panel-ref::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Glass Secondary Panel */
+.glass-panel {
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Glass Pill Buttons with fine specular rim */
+.glass-pill {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.42);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-pill:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.4);
+  border-top-color: rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.55);
+}
+
+/* Radial Stage lighting fallback */
+.stage-gradient {
+  background: radial-gradient(
+    circle at 62% 48%,
+    #fb923c 0%,
+    #ea580c 24%,
+    #c2410c 48%,
+    #7c2d12 72%,
+    #2a0a03 92%,
+    #130401 100%
+  );
+}
+
+/* Subtle glow badge */
+.badge-glow {
+  box-shadow: 0 0 12px rgba(234, 88, 12, 0.35);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* =========================================================================
+   TEXT LIGHTING & ILLUMINATION SYSTEM ("texts to be lighting or something bright")
+   ========================================================================= */
+
+/* 1. Luminous Cyan Studio Lighting (Giant Stage Typography) */
+.text-lighting-cyan {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #a5f3fc 20%,
+    #38bdf8 45%,
+    #22d3ee 70%,
+    #06b6d4 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.95))
+          drop-shadow(0 0 45px rgba(34, 211, 238, 0.75))
+          drop-shadow(0 0 95px rgba(6, 182, 212, 0.5))
+          drop-shadow(0 25px 35px rgba(0, 0, 0, 0.9));
+}
+
+/* Ultra Electric Neon Glow variant */
+.text-lighting-cyan-ultra {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #cffafe 18%,
+    #67e8f9 42%,
+    #22d3ee 70%,
+    #0891b2 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(103, 232, 249, 1))
+          drop-shadow(0 0 55px rgba(34, 211, 238, 0.85))
+          drop-shadow(0 0 120px rgba(6, 182, 212, 0.65))
+          drop-shadow(0 0 180px rgba(6, 182, 212, 0.35));
+}
+
+/* 2. Brilliant White Spotlight Text (Headlines & Labels) */
+.text-lighting-white {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f8fafc 45%,
+    #e2e8f0 85%,
+    #cbd5e1 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.85))
+          drop-shadow(0 0 28px rgba(255, 255, 255, 0.45));
+}
+
+/* 3. Incandescent Amber/Gold Light (Badges, Accents, Metrics) */
+.text-lighting-amber {
+  background: linear-gradient(
+    180deg,
+    #fffbeb 0%,
+    #fef08a 30%,
+    #fbbf24 65%,
+    #f59e0b 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.95))
+          drop-shadow(0 0 24px rgba(245, 158, 11, 0.65));
+}
+
+/* Light projector ambient aura behind typography */
+.text-aura-cyan {
+  background: radial-gradient(
+    circle at center,
+    rgba(34, 211, 238, 0.28) 0%,
+    rgba(6, 182, 212, 0.16) 45%,
+    rgba(8, 145, 178, 0.05) 70%,
+    transparent 85%
+  );
+  filter: blur(40px);
+}
+
+.text-aura-amber {
+  background: radial-gradient(
+    circle at center,
+    rgba(251, 191, 36, 0.3) 0%,
+    rgba(245, 158, 11, 0.15) 50%,
+    transparent 80%
+  );
+  filter: blur(35px);
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.95))
+            drop-shadow(0 0 45px rgba(34, 211, 238, 0.75))
+            drop-shadow(0 0 95px rgba(6, 182, 212, 0.5));
+    opacity: 0.96;
+  }
+  50% {
+    filter: drop-shadow(0 0 24px rgba(103, 232, 249, 1))
+            drop-shadow(0 0 65px rgba(34, 211, 238, 0.9))
+            drop-shadow(0 0 130px rgba(6, 182, 212, 0.65));
+    opacity: 1;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Subtle scrollbar for HudCard */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 191, 36, 0.5);
+}

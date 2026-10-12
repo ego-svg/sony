@@ -1,0 +1,6 @@
+{
+  "name": "Canon EOS 60D - Interactive Product Experience",
+  "description": "High-fidelity interactive 3D product showcase and scroll-driven storytelling for the Canon EOS 60D camera.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
